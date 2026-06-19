@@ -1,0 +1,26 @@
+<!-- 商品广场 -->
+<view class="page-index" style="padding-top: {{statusBarHeight}}px;">
+  <!-- 顶部搜索栏 -->
+  <view class="search-bar-wrap">
+    <cmp-search-bar placeholder="搜索你想要的宝贝" bind:tap="onSearchTap" />
+  </view>
+
+  <!-- 商品列表标题 -->
+  <view class="section-header">
+    <text class="section-title">为你推荐</text>
+    <text class="section-more" bindtap="onMoreTap">更多 ›</text>
+  </view>
+
+  <!-- 商品瀑布流 -->
+  <view class="goods-grid">
+    <cmp-goods-card
+      wx:for="{{goodsList}}"
+      wx:key="id"
+      goods="{{item}}"
+      bind:tap="onGoodsTap"
+    />
+  </view>
+
+  <!-- 加载更多 -->
+  <cmp-load-more loading="{{loading}}" />
+</view>

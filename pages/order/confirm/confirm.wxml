@@ -1,0 +1,35 @@
+<!-- 订单确认页 -->
+<view class="page-confirm">
+  <!-- 商品信息 -->
+  <view class="card goods-info">
+    <image class="goods-img" src="{{goods.image}}" mode="aspectFill" />
+    <view class="goods-right">
+      <text class="goods-title">{{goods.title}}</text>
+      <text class="goods-price">¥{{goods.price}}</text>
+    </view>
+  </view>
+
+  <!-- 订单详情 -->
+  <view class="card order-detail">
+    <view class="detail-row">
+      <text class="detail-label">商品金额</text>
+      <text class="detail-value">¥{{goods.price}}</text>
+    </view>
+    <view class="detail-row">
+      <text class="detail-label">数量</text>
+      <text class="detail-value">1</text>
+    </view>
+    <view class="detail-divider"></view>
+    <view class="detail-row total-row">
+      <text class="detail-label">合计</text>
+      <text class="detail-total">¥{{goods.price}}</text>
+    </view>
+  </view>
+
+  <!-- 下单按钮 -->
+  <view class="submit-section">
+    <view class="btn-primary {{submitting ? 'btn-disabled' : ''}}" bindtap="{{submitting ? '' : 'onSubmit'}}">
+      <text>{{submitting ? '下单中...' : '立即下单'}}</text>
+    </view>
+  </view>
+</view>

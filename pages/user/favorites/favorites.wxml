@@ -1,0 +1,16 @@
+<!-- 我的收藏 -->
+<view class="page">
+  <cmp-empty-state
+    wx:if="{{!loading && favList.length === 0}}"
+    text="暂无收藏的商品"
+  />
+  <view class="goods-grid" wx:if="{{favList.length > 0}}">
+    <cmp-goods-card
+      wx:for="{{favList}}"
+      wx:key="id"
+      goods="{{item}}"
+      bind:tap="onGoodsTap"
+    />
+  </view>
+  <cmp-load-more loading="{{loading}}" />
+</view>

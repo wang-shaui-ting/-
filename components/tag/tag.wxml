@@ -1,0 +1,2 @@
+<!-- 标签组件 -->
+<text class="tag {{hot ? 'tag-hot' : ''}}" bindtap="onTap">{{prefix}}{{text}}</text>

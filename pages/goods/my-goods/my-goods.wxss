@@ -1,0 +1,10 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.empty-text {
+  color: #999;
+  font-size: 28rpx;
+}

@@ -1,0 +1,4 @@
+/* ========== 校园二手 - 全局样式入口 ========== */
+@import "./styles/variables.wxss";
+@import "./styles/reset.wxss";
+@import "./styles/common.wxss";

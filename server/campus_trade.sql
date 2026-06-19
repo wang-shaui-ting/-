@@ -1,0 +1,40 @@
+-- 校园二手交易数据库建表脚本
+CREATE DATABASE IF NOT EXISTS campus_trade DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+USE campus_trade;
+
+-- 用户表
+CREATE TABLE IF NOT EXISTS users (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  openid VARCHAR(64) NOT NULL UNIQUE,
+  nickname VARCHAR(50) DEFAULT '',
+  avatar VARCHAR(255) DEFAULT '',
+  campus VARCHAR(100) DEFAULT '',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 商品表
+CREATE TABLE IF NOT EXISTS goods (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  title VARCHAR(200) NOT NULL,
+  category TINYINT NOT NULL DEFAULT 0 COMMENT '0全部 1教材 2数码 3生活 4运动',
+  price DECIMAL(10,2) NOT NULL DEFAULT 0,
+  description TEXT,
+  images JSON,
+  status ENUM('selling','sold') DEFAULT 'selling',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 求购表
+CREATE TABLE IF NOT EXISTS wanted (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  content TEXT,
+  images JSON,
+  status ENUM('open','closed') DEFAULT 'open',
+  like_count INT DEFAULT 0,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

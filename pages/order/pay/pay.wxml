@@ -1,0 +1,31 @@
+<!-- 支付页 -->
+<view class="page-pay">
+  <!-- 支付金额 -->
+  <view class="pay-amount-section">
+    <text class="pay-label">支付金额</text>
+    <text class="pay-amount">¥{{price}}</text>
+    <text class="pay-title">{{title}}</text>
+  </view>
+
+  <!-- 支付方式 -->
+  <view class="card pay-methods">
+    <view class="method-title">选择支付方式</view>
+    <view class="method-item method-active">
+      <text class="method-icon">💚</text>
+      <text class="method-name">微信支付</text>
+      <text class="method-check">✓</text>
+    </view>
+  </view>
+
+  <!-- 支付按钮 -->
+  <view class="submit-section">
+    <view class="btn-primary {{paying ? 'btn-disabled' : ''}}" bindtap="{{paying ? '' : 'onPay'}}">
+      <text>{{paying ? '支付中...' : '确认支付 ¥' + price}}</text>
+    </view>
+  </view>
+
+  <!-- 提示 -->
+  <view class="pay-tip">
+    <text>支付完成后，卖家将与你联系</text>
+  </view>
+</view>

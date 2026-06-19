@@ -1,0 +1,10 @@
+"use strict";
+exports.main = async (event, context) => {
+  // event 中包含所有微信支付回调参数,按需取用
+  // 使用 event_type === "TRANSACTION.SUCCESS" 来判断支付成功
+  const { event_type } = event;
+  if (event_type === "TRANSACTION.SUCCESS") {
+    // 处理支付成功相关的业务逻辑（写入云数据库 etc.）
+  }
+  return event;
+};

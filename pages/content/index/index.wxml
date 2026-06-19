@@ -1,0 +1,64 @@
+<!-- 商品广场 -->
+<view class="page-index" style="padding-top: {{statusBarHeight}}px;">
+  <!-- 顶部搜索栏 -->
+  <view class="search-bar-wrap">
+    <cmp-search-bar placeholder="搜索你想要的宝贝" bind:tap="onSearchTap" />
+  </view>
+
+  <!-- 分类筛选横条 -->
+  <scroll-view class="category-bar" scroll-x enable-flex>
+    <view
+      class="category-item {{categoryIndex === index ? 'active' : ''}}"
+      wx:for="{{categoryList}}"
+      wx:key="id"
+      wx:for-index="index"
+      data-index="{{index}}"
+      bindtap="onCategoryTap"
+    >
+      <text>{{item.name}}</text>
+    </view>
+  </scroll-view>
+
+  <!-- 公告栏（跑马灯从左向右滚动） -->
+  <view class="notice-bar">
+    <view class="notice-marquee-track">
+      <text class="notice-marquee-text">{{noticeMarqueeText}}</text>
+      <text class="notice-marquee-text">{{noticeMarqueeText}}</text>
+    </view>
+  </view>
+
+  <!-- 商品列表标题 + 小程序码入口 -->
+  <view class="section-header">
+    <text class="section-title">为你推荐</text>
+    <view class="qrcode-entry" bindtap="onQrcodeTap">
+      <text class="qrcode-icon">📱</text>
+      <text class="qrcode-text">分享码</text>
+    </view>
+  </view>
+
+  <!-- 商品瀑布流 -->
+  <view class="goods-grid">
+    <cmp-goods-card
+      wx:for="{{goodsList}}"
+      wx:key="id"
+      goods="{{item}}"
+      bind:tap="onGoodsTap"
+    />
+  </view>
+
+  <!-- 加载更多 -->
+  <cmp-load-more loading="{{loading}}" />
+
+  <!-- 小程序码弹层 -->
+  <view class="qrcode-overlay" wx:if="{{showQrcode}}" bindtap="onCloseQrcode">
+    <view class="qrcode-popup" catchtap="">
+      <text class="qrcode-popup-title">📱 扫一扫进入广场</text>
+      <view class="qrcode-img-wrap">
+        <image wx:if="{{qrcodeUrl}}" class="qrcode-img" src="{{qrcodeUrl}}" mode="aspectFit" />
+        <view wx:else class="qrcode-loading">生成中...</view>
+      </view>
+      <text class="qrcode-popup-tip">长按保存图片，分享给同学</text>
+      <text class="qrcode-close" bindtap="onCloseQrcode">关 闭</text>
+    </view>
+  </view>
+</view>

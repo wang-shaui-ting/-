@@ -1,0 +1,4 @@
+<!-- 加载更多组件 -->
+<view class="load-more" wx:if="{{loading || noMore}}">
+  <text class="load-more-text">{{loading ? loadingText : noMoreText}}</text>
+</view>

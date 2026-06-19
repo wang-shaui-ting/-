@@ -1,0 +1,69 @@
+<!-- 我的求购 -->
+<view class="page-my-wanted">
+  <!-- 消息角标 -->
+  <view class="header-bar" wx:if="{{unreadCount > 0}}">
+    <text class="header-tip">你有 {{unreadCount}} 条新消息</text>
+  </view>
+
+  <!-- 求购列表 -->
+  <view class="wanted-list" wx:if="{{list.length > 0}}">
+    <view class="wanted-item" wx:for="{{list}}" wx:key="id">
+      <!-- 头部信息 -->
+      <view class="item-header">
+        <view class="item-status status-{{item.status}}">
+          <text>{{item.statusText}}</text>
+        </view>
+        <view class="item-time">
+          <text>{{item.time}}</text>
+        </view>
+      </view>
+
+      <!-- 内容 -->
+      <view class="item-content">
+        <text class="item-text">{{item.content}}</text>
+      </view>
+
+      <!-- 预算 + 标签 -->
+      <view class="item-meta">
+        <view class="item-price" wx:if="{{item.min_price || item.max_price}}">
+          <text class="price-label">预算：</text>
+          <text class="price-value">¥{{item.min_price || 0}} ~ ¥{{item.max_price || 0}}</text>
+        </view>
+        <view class="item-tags" wx:if="{{item.tags && item.tags.length > 0}}">
+          <text class="item-tag" wx:for="{{item.tags}}" wx:key="*this">{{item}}</text>
+        </view>
+      </view>
+
+      <!-- 互动数据 -->
+      <view class="item-stats">
+        <text class="stat">👍 {{item.likeCount}}</text>
+        <text class="stat" style="{{item.commentCount > 0 ? 'color: #FF4D4F;' : ''}}">💬 {{item.commentCount}}</text>
+      </view>
+
+      <!-- 操作按钮 -->
+      <view class="item-actions">
+        <view class="action-btn edit-btn" data-id="{{item.id}}" bindtap="onEditTap">
+          <text>编辑</text>
+        </view>
+        <view class="action-btn close-btn" wx:if="{{item.status === 'open'}}" data-id="{{item.id}}" bindtap="onCloseTap">
+          <text>关闭</text>
+        </view>
+        <view class="action-btn delete-btn" data-id="{{item.id}}" bindtap="onDeleteTap">
+          <text>删除</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <cmp-empty-state
+    wx:if="{{!loading && list.length === 0}}"
+    text="暂无发布的求购"
+    showBtn="{{true}}"
+    btnText="去发布"
+    bind:action="onPublishTap"
+  />
+
+  <!-- 加载中 -->
+  <cmp-load-more loading="{{loading}}" />
+</view>

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "求购",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "cmp-feed-card": "/components/feed-card/feed-card",
+    "cmp-load-more": "/components/load-more/load-more"
+  }
+}

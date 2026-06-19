@@ -1,0 +1,168 @@
+/* ========== 我的求购样式 ========== */
+.page-my-wanted {
+  min-height: 100vh;
+  background: var(--bg);
+  padding-bottom: 40rpx;
+}
+
+/* 消息角标 */
+.header-bar {
+  background: #fff7e6;
+  padding: 16rpx 32rpx;
+  border-bottom: 1rpx solid #ffe58f;
+}
+
+.header-tip {
+  font-size: 26rpx;
+  color: #fa8c16;
+}
+
+/* 求购列表 */
+.wanted-list {
+  padding: 16rpx 24rpx;
+}
+
+.wanted-item {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 16rpx;
+}
+
+/* 头部 */
+.item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+
+.item-status {
+  font-size: 22rpx;
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+.item-status.status-open {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.item-status.status-closed {
+  background: var(--bg);
+  color: var(--text-muted);
+}
+
+.item-time {
+  font-size: 22rpx;
+  color: var(--text-muted);
+}
+
+/* 内容 */
+.item-content {
+  margin-bottom: 16rpx;
+}
+
+.item-text {
+  font-size: 28rpx;
+  color: var(--text-main);
+  line-height: 1.7;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+/* 预算和标签 */
+.item-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.item-price {
+  display: flex;
+  align-items: center;
+}
+
+.item-price .price-label {
+  font-size: 22rpx;
+  color: var(--text-muted);
+}
+
+.item-price .price-value {
+  font-size: 26rpx;
+  color: #fa8c16;
+  font-weight: 600;
+}
+
+.item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rpx;
+}
+
+.item-tag {
+  font-size: 20rpx;
+  background: var(--primary-light);
+  color: var(--primary);
+  padding: 4rpx 12rpx;
+  border-radius: 16rpx;
+}
+
+/* 互动数据 */
+.item-stats {
+  display: flex;
+  gap: 32rpx;
+  margin-bottom: 20rpx;
+  padding-bottom: 16rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.stat {
+  font-size: 24rpx;
+  color: var(--text-muted);
+}
+
+/* 操作按钮 */
+.item-actions {
+  display: flex;
+  gap: 16rpx;
+  justify-content: flex-end;
+}
+
+.action-btn {
+  padding: 10rpx 28rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+}
+
+.action-btn:active {
+  opacity: 0.8;
+}
+
+.edit-btn {
+  border: 1rpx solid var(--primary);
+}
+
+.edit-btn text {
+  color: var(--primary);
+}
+
+.close-btn {
+  border: 1rpx solid #fa8c16;
+}
+
+.close-btn text {
+  color: #fa8c16;
+}
+
+.delete-btn {
+  border: 1rpx solid #ff4d4f;
+}
+
+.delete-btn text {
+  color: #ff4d4f;
+}

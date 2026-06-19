@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "",
+  "navigationStyle": "custom",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "cmp-search-bar": "/components/search-bar/search-bar",
+    "cmp-goods-card": "/components/goods-card/goods-card",
+    "cmp-load-more": "/components/load-more/load-more"
+  }
+}

@@ -1,0 +1,16 @@
+/* 我的收藏 */
+.page {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.goods-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 16rpx 20rpx 0;
+}
+
+.cmp-load-more {
+  width: 100%;
+}

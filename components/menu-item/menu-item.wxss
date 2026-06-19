@@ -1,0 +1,36 @@
+/* 菜单项组件样式 */
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28rpx 28rpx;
+  border-bottom: 1rpx solid var(--border);
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-left {
+  display: flex;
+  align-items: center;
+}
+
+.menu-icon {
+  font-size: 36rpx;
+  margin-right: 20rpx;
+}
+
+.menu-text {
+  font-size: 28rpx;
+  color: var(--text-main);
+}
+
+.menu-arrow {
+  font-size: 36rpx;
+  color: var(--text-muted);
+}
+
+.menu-item:active {
+  background: var(--bg);
+}

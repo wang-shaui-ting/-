@@ -1,0 +1,20 @@
+/* 标签组件样式 */
+.tag {
+  display: inline-block;
+  padding: 8rpx 20rpx;
+  background: var(--bg);
+  color: var(--text-secondary);
+  font-size: 24rpx;
+  border-radius: var(--radius-sm);
+  margin-right: 16rpx;
+  margin-bottom: 12rpx;
+}
+
+.tag-hot {
+  background: #fff2f0;
+  color: var(--danger);
+}
+
+.tag:active {
+  opacity: 0.7;
+}

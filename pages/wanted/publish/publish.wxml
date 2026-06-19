@@ -1,0 +1,111 @@
+<!-- 发布求购 -->
+<view class="page-publish">
+  <!-- 表单区域 -->
+  <view class="form-section">
+    <!-- 求购描述 -->
+    <view class="form-group">
+      <view class="form-label">求购描述 <text class="required">*</text></view>
+      <textarea
+        class="form-textarea"
+        placeholder="描述你想买的商品，例如：求购一本9成新的《高等数学》"
+        maxlength="500"
+        value="{{content}}"
+        bindinput="onContentInput"
+      />
+      <view class="char-count">{{content.length}}/500</view>
+    </view>
+
+    <!-- 预算价格区间 -->
+    <view class="form-group">
+      <view class="form-label">预算价格 (元)</view>
+      <view class="price-range">
+        <input
+          class="price-input"
+          type="digit"
+          placeholder="最低价"
+          value="{{minPrice}}"
+          bindinput="onMinPriceInput"
+        />
+        <text class="price-separator">~</text>
+        <input
+          class="price-input"
+          type="digit"
+          placeholder="最高价"
+          value="{{maxPrice}}"
+          bindinput="onMaxPriceInput"
+        />
+      </view>
+    </view>
+
+    <!-- 自由标签 -->
+    <view class="form-group">
+      <view class="form-label">标签</view>
+      <view class="tag-section">
+        <view class="tag-list">
+          <view
+            wx:for="{{tags}}"
+            wx:key="index"
+            class="tag-item"
+          >
+            <text class="tag-text">{{item}}</text>
+            <text
+              class="tag-remove"
+              data-index="{{index}}"
+              bindtap="onRemoveTag"
+            >×</text>
+          </view>
+        </view>
+        <view class="tag-input-wrap" wx:if="{{tags.length < 5}}">
+          <input
+            class="tag-input"
+            placeholder="输入标签，回车添加"
+            value="{{tagInput}}"
+            bindinput="onTagInput"
+            bindconfirm="onAddTag"
+            maxlength="10"
+          />
+        </view>
+      </view>
+      <view class="form-tip">最多5个标签，如"教材""数码""急求"</view>
+    </view>
+
+    <!-- 图片上传 -->
+    <view class="form-group">
+      <view class="form-label">商品图片 <text class="optional">(选填，最多9张)</text></view>
+      <view class="image-upload">
+        <view
+          wx:for="{{images}}"
+          wx:key="index"
+          class="image-item"
+        >
+          <image class="image-preview" src="{{item}}" mode="aspectFill" />
+          <view
+            class="image-remove"
+            data-index="{{index}}"
+            bindtap="onRemoveImage"
+          >
+            <text>×</text>
+          </view>
+        </view>
+        <view
+          wx:if="{{images.length < 9}}"
+          class="image-add"
+          bindtap="onChooseImage"
+        >
+          <text class="add-icon">+</text>
+          <text class="add-text">{{images.length === 0 ? '添加图片' : images.length + '/9'}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部提交按钮 -->
+  <view class="submit-section">
+    <view
+      class="btn-primary {{submitting ? 'btn-disabled' : ''}}"
+      bindtap="{{submitting ? '' : 'onSubmit'}}"
+    >
+      <text>{{submitting ? '发布中...' : '确认发布'}}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,94 @@
+/* ========== 订单确认页样式 ========== */
+.page-confirm {
+  min-height: 100vh;
+  background: var(--bg);
+  padding-bottom: 120rpx;
+}
+
+/* 商品信息卡片 */
+.goods-info {
+  display: flex;
+  padding: 24rpx;
+  margin: 20rpx 24rpx;
+}
+
+.goods-img {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: var(--radius);
+  flex-shrink: 0;
+  background: #f0f0f0;
+}
+
+.goods-right {
+  flex: 1;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.goods-title {
+  font-size: 28rpx;
+  color: var(--text-main);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.goods-price {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: var(--danger);
+}
+
+/* 订单详情 */
+.order-detail {
+  margin: 0 24rpx 32rpx;
+  padding: 24rpx 28rpx;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 0;
+}
+
+.detail-label {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+}
+
+.detail-value {
+  font-size: 28rpx;
+  color: var(--text-main);
+}
+
+.detail-divider {
+  height: 2rpx;
+  background: var(--border);
+  margin: 12rpx 0;
+}
+
+.total-row {
+  padding: 20rpx 0 8rpx;
+}
+
+.detail-total {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: var(--danger);
+}
+
+/* 下单按钮 */
+.submit-section {
+  padding: 32rpx 24rpx;
+}
+
+.btn-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}

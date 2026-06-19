@@ -1,0 +1,56 @@
+<!-- 商品详情页 -->
+<view class="page-detail">
+  <!-- 商品大图 -->
+  <swiper class="detail-swiper" indicator-dots="{{images.length > 1}}" autoplay="{{false}}" circular="{{false}}">
+    <swiper-item wx:for="{{images}}" wx:key="*this">
+      <image class="detail-img" src="{{item}}" mode="aspectFill" bindtap="onPreviewImage" data-urls="{{images}}" data-current="{{item}}" />
+    </swiper-item>
+  </swiper>
+
+  <!-- 商品基本信息 -->
+  <view class="detail-info">
+    <view class="detail-price-row">
+      <text class="detail-price">¥{{goods.price}}</text>
+      <text class="detail-sold" wx:if="{{goods.sold}}">已售 {{goods.sold}} 件</text>
+    </view>
+    <text class="detail-title">{{goods.title}}</text>
+    <view class="detail-tags" wx:if="{{goods.tags && goods.tags.length > 0}}">
+      <text class="detail-tag" wx:for="{{goods.tags}}" wx:key="*this">{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 卖家信息 -->
+  <view class="detail-seller">
+    <image class="seller-avatar" src="{{seller.avatar}}" mode="aspectFill" />
+    <view class="seller-info">
+      <text class="seller-name">{{seller.nickname}}</text>
+      <text class="seller-campus">{{seller.campus}}</text>
+    </view>
+    <view class="seller-contact" bindtap="onContactTap">
+      <text>联系卖家</text>
+    </view>
+  </view>
+
+  <!-- 商品描述 -->
+  <view class="detail-desc">
+    <text class="desc-title">商品描述</text>
+    <text class="desc-content">{{goods.desc}}</text>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="detail-footer">
+    <view class="footer-actions">
+      <view class="footer-action" bindtap="onFavTap">
+        <text class="action-icon">{{isFaved ? '⭐' : '☆'}}</text>
+        <text class="action-text">{{isFaved ? '已收藏' : '收藏'}}</text>
+      </view>
+      <view class="footer-action" bindtap="onShareGoodsTap">
+        <text class="action-icon">↗️</text>
+        <text class="action-text">分享</text>
+      </view>
+    </view>
+    <view class="footer-buy" bindtap="onWantTap">
+      <text>我想要</text>
+    </view>
+  </view>
+</view>

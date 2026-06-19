@@ -1,0 +1,38 @@
+<!-- 登录页 -->
+<view class="page-login">
+  <!-- Logo 区域 -->
+  <view class="login-logo-wrap">
+    <view class="login-logo">🎓</view>
+    <text class="login-title">校园二手交易</text>
+    <text class="login-sub">与同学轻松买卖闲置</text>
+  </view>
+
+  <!-- 步骤1：微信授权登录 -->
+  <view class="login-btn-section" wx:if="{{!loggedIn}}">
+    <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="onWxLogin" loading="{{loading}}">
+      <text class="login-btn-icon">🔐</text>
+      <text>微信一键登录</text>
+    </button>
+    <text class="login-tip">授权获取你的昵称和头像</text>
+  </view>
+
+  <!-- 步骤2：获取手机号 -->
+  <view class="login-btn-section" wx:if="{{loggedIn && !phoneBound}}">
+    <view class="login-done-hint">✅ 登录成功</view>
+    <button class="login-btn phone-btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" loading="{{bindingPhone}}">
+      <text class="login-btn-icon">📱</text>
+      <text>授权手机号</text>
+    </button>
+    <text class="login-tip">用于交易联系，安全可靠</text>
+    <text class="skip-phone" bindtap="onSkipPhone">暂不绑定 ›</text>
+  </view>
+
+  <!-- 完成 -->
+  <view class="login-btn-section" wx:if="{{loggedIn && phoneBound}}">
+    <view class="login-done-hint">🎉 授权完成</view>
+    <button class="login-btn" bindtap="onFinish">
+      <text class="login-btn-icon">🚀</text>
+      <text>进入校园二手交易</text>
+    </button>
+  </view>
+</view>

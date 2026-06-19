@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "搜索",
+  "usingComponents": {
+    "cmp-tag": "/components/tag/tag",
+    "cmp-goods-card": "/components/goods-card/goods-card"
+  }
+}

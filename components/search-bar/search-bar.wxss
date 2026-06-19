@@ -1,0 +1,29 @@
+/* 搜索栏组件样式 */
+.search-bar {
+  display: flex;
+  align-items: center;
+  height: 76rpx;
+  background: var(--bg);
+  border-radius: var(--radius-xl);
+  border: 2rpx solid var(--primary-light);
+  padding: 0 28rpx;
+}
+
+.search-icon {
+  font-size: 34rpx;
+  margin-right: 16rpx;
+  opacity: 0.5;
+}
+
+.search-placeholder {
+  font-size: 28rpx;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.search-cancel {
+  font-size: 28rpx;
+  color: var(--primary);
+  margin-left: 20rpx;
+  flex-shrink: 0;
+}

@@ -1,0 +1,56 @@
+<!-- 搜索页 -->
+<view class="page-search">
+  <!-- 搜索输入栏 -->
+  <view class="search-input-wrap">
+    <view class="search-input-box">
+      <text class="search-icon">🔍</text>
+      <input
+        class="search-input"
+        placeholder="搜索教材、数码、生活用品..."
+        value="{{keyword}}"
+        focus="{{true}}"
+        bindinput="onInput"
+        bindconfirm="onSearch"
+        confirm-type="search"
+      />
+      <text class="search-clear" wx:if="{{keyword}}" bindtap="onClear">✕</text>
+    </view>
+    <text class="search-cancel" bindtap="onCancel">取消</text>
+  </view>
+
+  <!-- 历史搜索 -->
+  <view class="search-section" wx:if="{{!keyword && history.length > 0}}">
+    <view class="section-hd">
+      <text class="section-title">历史搜索</text>
+      <text class="section-clear" bindtap="onClearHistory">清空</text>
+    </view>
+    <view class="tag-row">
+      <cmp-tag wx:for="{{history}}" wx:key="*this" text="{{item}}" bind:tap="onHistoryTap" />
+    </view>
+  </view>
+
+  <!-- 热门搜索 -->
+  <view class="search-section" wx:if="{{!keyword}}">
+    <view class="section-hd">
+      <text class="section-title">🔥 热门搜索</text>
+    </view>
+    <view class="tag-row">
+      <cmp-tag wx:for="{{hotWords}}" wx:key="*this" text="{{item}}" hot="{{true}}" bind:tap="onHistoryTap" />
+    </view>
+  </view>
+
+  <!-- 搜索结果 -->
+  <view class="search-result" wx:if="{{keyword}}">
+    <text class="result-tip" wx:if="{{resultList.length === 0 && !searching}}">
+      暂无相关商品，试试其他关键词吧
+    </text>
+    <view class="goods-grid">
+      <cmp-goods-card
+        wx:for="{{resultList}}"
+        wx:key="id"
+        goods="{{item}}"
+        bind:tap="onGoodsTap"
+      />
+    </view>
+  </view>
+</view>

@@ -1,0 +1,18 @@
+<!-- 商品卡片组件 -->
+<view class="goods-card" bindtap="onTap">
+  <image class="goods-img" src="{{goods.image}}" mode="aspectFill" lazy-load />
+  <view class="goods-info">
+    <view class="goods-seller" wx:if="{{goods.seller_name}}">
+      <image class="seller-avatar" src="{{goods.seller_avatar}}" mode="aspectFill" />
+      <text class="seller-name">{{goods.seller_name}}</text>
+    </view>
+    <text class="goods-title ellipsis-2">{{goods.title}}</text>
+    <view class="goods-bottom">
+      <view class="goods-price-row">
+        <text class="goods-price">¥{{goods.price}}</text>
+        <text class="goods-sold" wx:if="{{goods.sold}}">已售{{goods.sold}}</text>
+      </view>
+      <text class="goods-tag" wx:if="{{categoryName}}">{{categoryName}}</text>
+    </view>
+  </view>
+</view>

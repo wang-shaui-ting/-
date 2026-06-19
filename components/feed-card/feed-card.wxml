@@ -1,0 +1,75 @@
+<!-- 求购信息流卡片组件 -->
+<view class="feed-card" bindtap="onTap">
+  <!-- 用户信息行 -->
+  <view class="feed-user">
+    <image class="feed-avatar" src="{{post.avatar}}" mode="aspectFill" />
+    <view class="feed-user-info">
+      <view class="feed-nickname-row">
+        <text class="feed-nickname">{{post.nickname}}</text>
+        <text class="feed-verified" wx:if="{{post.verified}}">✅</text>
+      </view>
+      <text class="feed-time">{{post.time}}</text>
+    </view>
+    <view class="feed-follow-btn" wx:if="{{!post.isFollowed}}" catchtap="onFollowTap">
+      <text>+ 关注</text>
+    </view>
+    <view class="feed-status-tag status-{{post.status}}">
+      <text>{{post.statusText}}</text>
+    </view>
+  </view>
+
+  <!-- 正文内容 -->
+  <view class="feed-content">
+    <text class="feed-text">{{post.content}}</text>
+  </view>
+
+  <!-- 图片区 - 九宫格 -->
+  <view class="feed-images" wx:if="{{post.images && post.images.length > 0}}">
+    <view class="feed-img-grid grid-{{post.images.length <= 4 ? '2' : '3'}}">
+      <image
+        class="feed-img"
+        wx:for="{{post.images}}"
+        wx:for-item="img"
+        wx:key="*this"
+        src="{{img}}"
+        mode="aspectFill"
+        lazy-load
+        catchtap="onPreviewImage"
+        data-urls="{{post.images}}"
+        data-current="{{img}}"
+      />
+    </view>
+  </view>
+
+  <!-- 预算价格区间 -->
+  <view class="feed-price" wx:if="{{post.min_price || post.max_price}}">
+    <text class="price-label">预算：</text>
+    <text class="price-value">¥{{post.min_price || 0}} ~ ¥{{post.max_price || 0}}</text>
+  </view>
+
+  <!-- 话题标签 -->
+  <view class="feed-tags" wx:if="{{post.tags && post.tags.length > 0}}">
+    <cmp-tag
+      wx:for="{{post.tags}}"
+      wx:key="*this"
+      text="{{item}}"
+      prefix="#"
+    />
+  </view>
+
+  <!-- 互动栏 -->
+  <view class="feed-actions">
+    <view class="feed-action" catchtap="onLikeTap">
+      <text class="action-icon">{{post.isLiked ? '❤️' : '🤍'}}</text>
+      <text class="action-count" style="{{post.isLiked ? 'color: #FF4D4F;' : ''}}">{{post.likeCount}}</text>
+    </view>
+    <view class="feed-action" catchtap="onCommentTap">
+      <text class="action-icon">💬</text>
+      <text class="action-count">{{post.commentCount}}</text>
+    </view>
+    <view class="feed-action" catchtap="onShareTap">
+      <text class="action-icon">🔄</text>
+      <text class="action-count">{{post.shareCount}}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,38 @@
+/* ========== 商品广场样式 ========== */
+.page-index {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+/* 搜索栏外层包装 */
+.search-bar-wrap {
+  padding: 20rpx 24rpx;
+  background: var(--white);
+}
+
+/* 段落标题 */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 24rpx 16rpx;
+  background: var(--white);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.section-more {
+  font-size: 26rpx;
+  color: var(--text-muted);
+}
+
+/* 商品网格 */
+.goods-grid {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 20rpx;
+}

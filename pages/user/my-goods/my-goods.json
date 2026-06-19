@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "我的发布",
+  "usingComponents": {
+    "cmp-empty-state": "/components/empty-state/empty-state",
+    "cmp-goods-card": "/components/goods-card/goods-card",
+    "cmp-load-more": "/components/load-more/load-more"
+  }
+}

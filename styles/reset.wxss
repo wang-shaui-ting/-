@@ -1,0 +1,16 @@
+/* ========== 全局重置样式 ========== */
+view,
+text,
+image,
+input,
+button,
+textarea,
+scroll-view,
+swiper,
+swiper-item,
+picker,
+navigator {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

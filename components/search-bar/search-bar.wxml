@@ -1,0 +1,6 @@
+<!-- 搜索栏组件 -->
+<view class="search-bar" bindtap="onTap">
+  <text class="search-icon">🔍</text>
+  <text class="search-placeholder">{{placeholder}}</text>
+  <text class="search-cancel" wx:if="{{showCancel}}">取消</text>
+</view>

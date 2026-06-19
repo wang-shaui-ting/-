@@ -1,0 +1,8 @@
+<!-- 菜单项组件 -->
+<view class="menu-item" bindtap="onTap">
+  <view class="menu-left">
+    <text class="menu-icon" wx:if="{{icon}}">{{icon}}</text>
+    <text class="menu-text">{{text}}</text>
+  </view>
+  <text class="menu-arrow" wx:if="{{showArrow}}">›</text>
+</view>

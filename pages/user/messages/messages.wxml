@@ -1,0 +1,24 @@
+<!-- 消息中心 -->
+<view class="page-messages">
+  <cmp-empty-state wx:if="{{!loading && messages.length === 0}}" text="暂无消息" />
+  <view class="msg-list" wx:if="{{messages.length > 0}}">
+    <view
+      class="msg-item"
+      wx:for="{{messages}}"
+      wx:key="id"
+      data-wanted-id="{{item.wantedId}}"
+      bindtap="onMessageTap"
+    >
+      <image class="msg-avatar" src="{{item.avatar}}" mode="aspectFill" />
+      <view class="msg-body">
+        <view class="msg-header">
+          <text class="msg-nickname">{{item.nickname}}</text>
+          <text class="msg-time">{{item.time}}</text>
+        </view>
+        <text class="msg-content">{{item.content}}</text>
+        <text class="msg-source">📌 {{item.wantedTitle}}</text>
+      </view>
+    </view>
+  </view>
+  <cmp-load-more loading="{{loading}}" />
+</view>

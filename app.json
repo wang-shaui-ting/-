@@ -1,0 +1,59 @@
+{
+  "lazyCodeLoading": "requiredComponents",
+  "pages": [
+    "pages/content/index/index",
+    "pages/content/wanted/wanted",
+    "pages/user/profile/profile",
+    "pages/content/search/search",
+    "pages/content/detail/detail",
+    "pages/goods/publish/publish",
+    "pages/user/my-goods/my-goods",
+    "pages/user/favorites/favorites",
+    "pages/user/my-wanted/my-wanted",
+    "pages/user/messages/messages",
+    "pages/order/confirm/confirm",
+    "pages/order/pay/pay",
+    "pages/login/login/login",
+    "pages/wanted/publish/publish"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "校园二手交易",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F5F5F5"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#1677FF",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/content/index/index",
+        "text": "广场",
+        "iconPath": "static/icons/home.png",
+        "selectedIconPath": "static/icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/goods/publish/publish",
+        "text": "发布",
+        "iconPath": "static/icons/publish.jpg",
+        "selectedIconPath": "static/icons/publish-active.jpg"
+      },
+      {
+        "pagePath": "pages/content/wanted/wanted",
+        "text": "求购",
+        "iconPath": "static/icons/discuss.png",
+        "selectedIconPath": "static/icons/discuss-active.png"
+      },
+      {
+        "pagePath": "pages/user/profile/profile",
+        "text": "我的",
+        "iconPath": "static/icons/profile.png",
+        "selectedIconPath": "static/icons/profile-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

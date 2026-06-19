@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "我的求购",
+  "usingComponents": {
+    "cmp-empty-state": "/components/empty-state/empty-state",
+    "cmp-load-more": "/components/load-more/load-more"
+  }
+}

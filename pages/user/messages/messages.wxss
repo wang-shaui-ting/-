@@ -1,0 +1,65 @@
+/* 消息中心 */
+.page-messages {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.msg-list {
+  padding: 16rpx 24rpx;
+}
+
+.msg-item {
+  display: flex;
+  align-items: flex-start;
+  background: var(--white);
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-bottom: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+
+.msg-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: #eee;
+  flex-shrink: 0;
+  margin-right: 20rpx;
+}
+
+.msg-body {
+  flex: 1;
+  overflow: hidden;
+}
+
+.msg-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+
+.msg-nickname {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.msg-time {
+  font-size: 22rpx;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.msg-content {
+  font-size: 26rpx;
+  color: var(--text-main);
+  line-height: 1.5;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.msg-source {
+  font-size: 22rpx;
+  color: var(--primary);
+}

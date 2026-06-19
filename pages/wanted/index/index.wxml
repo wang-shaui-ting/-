@@ -1,0 +1,135 @@
+<!-- 求购广场 -->
+<view class="page-wanted">
+  <!-- 信息流列表 -->
+  <view class="feed-list">
+    <block wx:for="{{posts}}" wx:key="id">
+      <cmp-feed-card
+        post="{{item}}"
+        bind:tap="onPostTap"
+        bind:follow="onFollowTap"
+        bind:like="onLikeTap"
+        bind:comment="onCommentTap"
+        bind:share="onShareTap"
+        bind:preview="onPreviewImage"
+      />
+
+      <!-- 内嵌展开详情 -->
+      <view class="expanded-detail" wx:if="{{expandedId === item.id}}">
+        <view wx:if="{{expandedDetail}}" class="detail-inner">
+          <!-- 完整内容 -->
+          <view class="detail-content">
+            <text class="detail-text">{{expandedDetail.content}}</text>
+          </view>
+
+          <!-- 预算 + 标签 -->
+          <view class="detail-meta">
+            <view class="detail-price" wx:if="{{expandedDetail.min_price || expandedDetail.max_price}}">
+              <text class="price-label">预算：</text>
+              <text class="price-value">¥{{expandedDetail.min_price || 0}} ~ ¥{{expandedDetail.max_price || 0}}</text>
+            </view>
+            <view class="detail-tags" wx:if="{{expandedDetail.tags && expandedDetail.tags.length > 0}}">
+              <view class="detail-tag" wx:for="{{expandedDetail.tags}}" wx:key="*this">{{item}}</view>
+            </view>
+          </view>
+
+          <!-- 评论区标题 -->
+          <view class="comment-section">
+            <view class="comment-header">
+              <text class="comment-title">评论 ({{comments.length}})</text>
+            </view>
+
+            <!-- 评论列表 -->
+            <view class="comment-list" wx:if="{{comments.length > 0}}">
+              <view class="comment-item" wx:for="{{comments}}" wx:key="id">
+                <view class="comment-main">
+                  <image class="comment-avatar" src="{{item.avatar}}" mode="aspectFill" />
+                  <view class="comment-body">
+                    <view class="comment-user-row">
+                      <text class="comment-nickname">{{item.nickname}}</text>
+                      <text class="comment-time">{{item.time}}</text>
+                    </view>
+                    <text class="comment-text">{{item.content}}</text>
+                    <view class="comment-actions">
+                      <text
+                        class="comment-action"
+                        data-comment-id="{{item.id}}"
+                        bindtap="onLikeCommentTap"
+                      >👍 {{item.likeCount}}</text>
+                      <text
+                        class="comment-action"
+                        data-comment-id="{{item.id}}"
+                        data-nickname="{{item.nickname}}"
+                        bindtap="onReplyTap"
+                      >回复</text>
+                    </view>
+
+                    <!-- 回复列表 -->
+                    <view class="reply-list" wx:if="{{item.replies && item.replies.length > 0}}">
+                      <view class="reply-item" wx:for="{{item.replies}}" wx:key="id" wx:for-item="reply">
+                        <image class="reply-avatar" src="{{reply.avatar}}" mode="aspectFill" />
+                        <view class="reply-body">
+                          <text class="reply-nickname">{{reply.nickname}}</text>
+                          <text class="reply-text">{{reply.content}}</text>
+                          <view class="comment-actions">
+                            <text
+                              class="comment-action"
+                              data-comment-id="{{reply.id}}"
+                              bindtap="onLikeCommentTap"
+                            >👍 {{reply.likeCount}}</text>
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+
+            <!-- 无评论 -->
+            <view class="comment-empty" wx:if="{{!commentLoading && comments.length === 0}}">
+              <text>暂无评论，来发表第一条吧</text>
+            </view>
+
+            <!-- 加载中 -->
+            <view class="comment-loading" wx:if="{{commentLoading}}">
+              <text>加载中...</text>
+            </view>
+
+            <!-- 评论输入区 -->
+            <view class="comment-input-bar">
+              <view class="reply-hint" wx:if="{{replyTo}}">
+                <text>回复 @{{replyTo.nickname}}</text>
+                <text class="reply-cancel" bindtap="onCancelReply">取消</text>
+              </view>
+              <view class="input-row">
+                <input
+                  class="comment-input"
+                  placeholder="{{replyTo ? '输入回复...' : '发表评论...'}}"
+                  value="{{commentInput}}"
+                  bindinput="onCommentInput"
+                  confirm-type="done"
+                  bindconfirm="onSubmitComment"
+                />
+                <view class="comment-submit" bindtap="onSubmitComment">
+                  <text>发送</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="detail-loading" wx:elif="{{commentLoading}}">
+          <text>加载中...</text>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 加载更多 -->
+  <cmp-load-more loading="{{loading}}" />
+
+  <!-- 悬浮发布按钮 -->
+  <view class="float-publish-btn" bindtap="onPublishTap">
+    <text class="publish-icon">✏️</text>
+  </view>
+</view>

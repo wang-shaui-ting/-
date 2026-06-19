@@ -1,0 +1,102 @@
+/* ========== 支付页样式 ========== */
+.page-pay {
+  min-height: 100vh;
+  background: var(--bg);
+  padding-bottom: 120rpx;
+}
+
+/* 支付金额区域 */
+.pay-amount-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60rpx 0 40rpx;
+}
+
+.pay-label {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  margin-bottom: 16rpx;
+}
+
+.pay-amount {
+  font-size: 72rpx;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1;
+  margin-bottom: 16rpx;
+}
+
+.pay-title {
+  font-size: 26rpx;
+  color: var(--text-muted);
+  max-width: 500rpx;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 支付方式 */
+.pay-methods {
+  margin: 0 24rpx 32rpx;
+  padding: 24rpx 28rpx;
+}
+
+.method-title {
+  font-size: 26rpx;
+  color: var(--text-muted);
+  margin-bottom: 16rpx;
+}
+
+.method-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 0;
+  border-bottom: 2rpx solid var(--border);
+}
+
+.method-item:last-child {
+  border-bottom: none;
+}
+
+.method-icon {
+  font-size: 40rpx;
+  margin-right: 16rpx;
+}
+
+.method-name {
+  flex: 1;
+  font-size: 30rpx;
+  color: var(--text-main);
+}
+
+.method-check {
+  font-size: 36rpx;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.method-active {
+  /* 选中状态 */
+}
+
+/* 支付按钮 */
+.submit-section {
+  padding: 32rpx 24rpx;
+}
+
+.btn-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* 底部提示 */
+.pay-tip {
+  text-align: center;
+  padding: 20rpx;
+  font-size: 24rpx;
+  color: var(--text-muted);
+}

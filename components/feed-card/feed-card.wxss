@@ -1,0 +1,196 @@
+/* 求购信息流卡片组件样式 */
+.feed-card {
+  background: var(--white);
+  margin-bottom: 12rpx;
+  padding: 24rpx;
+}
+
+.feed-card:active {
+  background: #fafafa;
+}
+
+/* 用户信息行 */
+.feed-user {
+  display: flex;
+  align-items: center;
+}
+
+.feed-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: #e8e8e8;
+  flex-shrink: 0;
+}
+
+.feed-user-info {
+  flex: 1;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.feed-nickname-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4rpx;
+}
+
+.feed-nickname {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.feed-verified {
+  font-size: 24rpx;
+  margin-left: 6rpx;
+}
+
+.feed-time {
+  font-size: 22rpx;
+  color: var(--text-muted);
+}
+
+/* 状态标签 */
+.feed-status-tag {
+  flex-shrink: 0;
+  font-size: 22rpx;
+  padding: 4rpx 16rpx;
+  border-radius: var(--radius-sm);
+  margin-left: 16rpx;
+}
+
+.feed-status-tag.status-open {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.feed-status-tag.status-closed {
+  background: var(--bg);
+  color: var(--text-muted);
+}
+
+/* 关注按钮 */
+.feed-follow-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rpx 24rpx;
+  border-radius: var(--radius-xl);
+  border: 2rpx solid var(--primary);
+  flex-shrink: 0;
+}
+
+.feed-follow-btn text {
+  font-size: 24rpx;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* 正文内容 */
+.feed-content {
+  padding: 20rpx 0 16rpx;
+}
+
+.feed-text {
+  font-size: 30rpx;
+  color: var(--text-main);
+  line-height: 1.7;
+  word-break: break-all;
+}
+
+/* 图片区 - 九宫格 */
+.feed-images {
+  margin-bottom: 12rpx;
+}
+
+.feed-img-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6rpx;
+}
+
+.feed-img-grid.grid-2 .feed-img {
+  width: calc((100% - 6rpx) / 2);
+  height: 0;
+  padding-bottom: calc((100% - 6rpx) / 2);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.feed-img-grid.grid-3 .feed-img {
+  width: calc((100% - 12rpx) / 3);
+  height: 0;
+  padding-bottom: calc((100% - 12rpx) / 3);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.feed-img-grid .feed-img:only-child {
+  width: 60%;
+  padding-bottom: 50%;
+}
+
+.feed-img-grid .feed-img:nth-child(2):last-child {
+  width: calc((100% - 6rpx) / 2);
+  padding-bottom: calc((100% - 6rpx) / 2);
+}
+
+.feed-img-grid .feed-img:nth-child(3):last-child {
+  width: calc((100% - 12rpx) / 3);
+  padding-bottom: calc((100% - 12rpx) / 3);
+}
+
+/* 预算价格区间 */
+.feed-price {
+  padding: 0 0 16rpx;
+  display: flex;
+  align-items: center;
+}
+
+.price-label {
+  font-size: 24rpx;
+  color: var(--text-muted);
+}
+
+.price-value {
+  font-size: 28rpx;
+  color: #fa8c16;
+  font-weight: 600;
+}
+
+/* 话题标签 */
+.feed-tags {
+  padding-bottom: 12rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* 互动栏 */
+.feed-actions {
+  display: flex;
+  align-items: center;
+  padding-top: 16rpx;
+  border-top: 1rpx solid var(--border);
+}
+
+.feed-action {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.action-icon {
+  font-size: 32rpx;
+  margin-right: 6rpx;
+}
+
+.action-count {
+  font-size: 24rpx;
+  color: var(--text-muted);
+}

@@ -1,0 +1,99 @@
+/* ========== 搜索页样式 ========== */
+.page-search {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+/* 搜索输入栏 */
+.search-input-wrap {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 24rpx;
+  background: var(--white);
+}
+
+.search-input-box {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  height: 76rpx;
+  background: var(--bg);
+  border-radius: var(--radius-xl);
+  padding: 0 28rpx;
+}
+
+.search-icon {
+  font-size: 34rpx;
+  margin-right: 16rpx;
+  opacity: 0.5;
+}
+
+.search-input {
+  flex: 1;
+  font-size: 28rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+}
+
+.search-clear {
+  font-size: 28rpx;
+  color: var(--text-muted);
+  padding-left: 16rpx;
+  flex-shrink: 0;
+}
+
+.search-cancel {
+  font-size: 28rpx;
+  color: var(--primary);
+  padding-left: 24rpx;
+  flex-shrink: 0;
+}
+
+/* 搜索区块 */
+.search-section {
+  padding: 24rpx;
+}
+
+.section-hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.section-clear {
+  font-size: 24rpx;
+  color: var(--text-muted);
+}
+
+/* 标签行 */
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* 搜索结果 */
+.search-result {
+  padding: 20rpx 20rpx 0;
+}
+
+.result-tip {
+  display: block;
+  text-align: center;
+  padding: 80rpx 0;
+  font-size: 26rpx;
+  color: var(--text-muted);
+}
+
+/* 商品网格 */
+.goods-grid {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}

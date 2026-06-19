@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "个人中心",
+  "navigationBarBackgroundColor": "#1677FF",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "cmp-menu-item": "/components/menu-item/menu-item"
+  }
+}

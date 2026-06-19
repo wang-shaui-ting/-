@@ -1,0 +1,4 @@
+<!-- 我的发布 -->
+<view class="page">
+  <cmp-empty-state text="暂无发布的商品" showBtn="{{true}}" btnText="去发布" bind:action="onPublishTap" />
+</view>
